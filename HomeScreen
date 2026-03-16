@@ -1,0 +1,238 @@
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TextInput,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons, Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+
+export default function HomeScreen() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.topCard}>
+          <View style={styles.headerRow}>
+            <Image
+              source={{ uri: "https://i.pravatar.cc/100?img=12" }}
+              style={styles.avatar}
+            />
+
+            <View style={{ flex: 1, marginLeft: 12 }}>
+              <Text style={styles.locationLabel}>Your Location</Text>
+              <View style={styles.locationRow}>
+                <Ionicons name="location-outline" size={18} color="#5B43F3" />
+                <Text style={styles.locationText}>Savar, Dhaka</Text>
+              </View>
+            </View>
+
+            <TouchableOpacity style={styles.bellButton}>
+              <Ionicons name="notifications-outline" size={22} color="#222" />
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.searchBar}>
+            <Ionicons name="search-outline" size={20} color="#fff" />
+            <TextInput
+              placeholder="Search your food"
+              placeholderTextColor="#ddd"
+              style={styles.searchInput}
+            />
+            <Feather name="sliders" size={18} color="#fff" />
+          </View>
+        </View>
+
+        <View style={styles.categoryRow}>
+          <TouchableOpacity style={[styles.categoryItem, styles.activeCategory]}>
+            <MaterialCommunityIcons name="pizza" size={28} color="#fff" />
+            <Text style={[styles.categoryText, { color: "#fff" }]}>PIZZA</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.categoryItem}>
+            <MaterialCommunityIcons name="hamburger" size={28} color="#333" />
+            <Text style={styles.categoryText}>BURGER</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.categoryItem}>
+            <MaterialCommunityIcons name="glass-cocktail" size={28} color="#333" />
+            <Text style={styles.categoryText}>DRINK</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.categoryItem}>
+            <MaterialCommunityIcons name="silverware-fork-knife" size={28} color="#333" />
+            <Text style={styles.categoryText}>RICE</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.offerCard}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.offerTitle}>BURGER</Text>
+            <Text style={styles.offerSub}>Today's Hot offer</Text>
+            <View style={styles.ratingRow}>
+              <Text style={styles.star}>⭐</Text>
+              <Text style={styles.offerRate}>4.9 (3k+ Rating)</Text>
+            </View>
+          </View>
+
+          <Image
+            source={{ uri: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd" }}
+            style={styles.offerImage}
+          />
+
+          <View style={styles.discountBadge}>
+            <Text style={styles.discountText}>10%{"\n"}OFF</Text>
+          </View>
+        </View>
+
+        <View style={styles.sectionRow}>
+          <Text style={styles.sectionTitle}>Popular Items</Text>
+          <Text style={styles.viewAll}>View All</Text>
+        </View>
+
+        <View style={styles.popularRow}>
+          <View style={styles.foodCard}>
+            <Image
+              source={{ uri: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd" }}
+              style={styles.foodImage}
+            />
+            <Text style={styles.foodName}>BURGER</Text>
+          </View>
+
+          <View style={styles.foodCard}>
+            <Image
+              source={{ uri: "https://images.unsplash.com/photo-1513104890138-7c749659a591" }}
+              style={styles.foodImage}
+            />
+            <Text style={styles.foodName}>PIZZA</Text>
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#F9F9F9", paddingHorizontal: 16 },
+  topCard: {
+    backgroundColor: "#F2F2D8",
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    padding: 16,
+    marginBottom: 20,
+  },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  avatar: { width: 52, height: 52, borderRadius: 26 },
+  locationLabel: { color: "#777", fontSize: 14 },
+  locationRow: { flexDirection: "row", alignItems: "center", marginTop: 4 },
+  locationText: { fontSize: 20, fontWeight: "700", marginLeft: 4, color: "#222" },
+  bellButton: {
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: "#F7F7E8",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  searchBar: {
+    backgroundColor: "#5B43F3",
+    borderRadius: 30,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 18,
+    height: 56,
+  },
+  searchInput: { flex: 1, color: "#fff", marginLeft: 10 },
+  categoryRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+  categoryItem: {
+    width: 74,
+    height: 100,
+    borderRadius: 14,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  activeCategory: {
+    backgroundColor: "#68D391",
+  },
+  categoryText: {
+    marginTop: 8,
+    fontSize: 12,
+    fontWeight: "600",
+    color: "#333",
+  },
+  offerCard: {
+    backgroundColor: "#111",
+    borderRadius: 22,
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 18,
+    overflow: "hidden",
+    marginBottom: 24,
+  },
+  offerTitle: { color: "#FFD84D", fontSize: 22, fontWeight: "800" },
+  offerSub: { color: "#fff", fontSize: 15, marginTop: 6 },
+  ratingRow: { flexDirection: "row", alignItems: "center", marginTop: 10 },
+  star: { fontSize: 16 },
+  offerRate: { color: "#fff", marginLeft: 6 },
+  offerImage: { width: 160, height: 120, borderRadius: 16, marginLeft: 10 },
+  discountBadge: {
+    position: "absolute",
+    right: 110,
+    top: 18,
+    backgroundColor: "#5B43F3",
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  discountText: {
+    color: "#fff",
+    fontWeight: "700",
+    textAlign: "center",
+    fontSize: 13,
+  },
+  sectionRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 14,
+  },
+  sectionTitle: { fontSize: 24, fontWeight: "700", color: "#222" },
+  viewAll: { fontSize: 16, color: "#555" },
+  popularRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 30,
+  },
+  foodCard: {
+    width: "48%",
+    backgroundColor: "#fff",
+    borderRadius: 16,
+    padding: 10,
+  },
+  foodImage: {
+    width: "100%",
+    height: 120,
+    borderRadius: 12,
+  },
+  foodName: {
+    fontSize: 16,
+    fontWeight: "700",
+    marginTop: 10,
+    color: "#222",
+  },
+});

@@ -1,0 +1,162 @@
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+  Switch,
+} from "react-native";
+import { Ionicons, Feather, AntDesign } from "@expo/vector-icons";
+
+export default function ProfileScreen() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.topBg}>
+        <View style={styles.header}>
+          <Ionicons name="arrow-back" size={24} color="#222" />
+          <Text style={styles.headerTitle}>Profile</Text>
+          <View style={{ width: 24 }} />
+        </View>
+      </View>
+
+      <View style={styles.profileWrap}>
+        <View style={styles.avatarWrapper}>
+          <Image
+            source={{ uri: "https://i.pravatar.cc/150?img=12" }}
+            style={styles.avatar}
+          />
+          <TouchableOpacity style={styles.editBtn}>
+            <Feather name="edit-2" size={16} color="#fff" />
+          </TouchableOpacity>
+        </View>
+
+        <Text style={styles.name}>Dao Huy Son</Text>
+        <Text style={styles.email}>sonhuy021205@gmail.com</Text>
+
+        <TouchableOpacity style={styles.menuItem}>
+          <View style={styles.leftRow}>
+            <AntDesign name="home" size={22} color="#222" />
+            <Text style={styles.menuText}>Home</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={22} color="#222" />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.menuItem}>
+          <View style={styles.leftRow}>
+            <Feather name="credit-card" size={22} color="#222" />
+            <Text style={styles.menuText}>My Card</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={22} color="#222" />
+        </TouchableOpacity>
+
+        <View style={styles.menuItem}>
+          <View style={styles.leftRow}>
+            <Ionicons name="moon-outline" size={22} color="#222" />
+            <Text style={styles.menuText}>Dark Mood</Text>
+          </View>
+          <Switch value={false} />
+        </View>
+
+        <TouchableOpacity style={styles.menuItem}>
+          <View style={styles.leftRow}>
+            <Ionicons name="location-outline" size={22} color="#222" />
+            <Text style={styles.menuText}>Truck Your Order</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={22} color="#222" />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.menuItem}>
+          <View style={styles.leftRow}>
+            <Feather name="settings" size={22} color="#222" />
+            <Text style={styles.menuText}>Settings</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={22} color="#222" />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.menuItem}>
+          <View style={styles.leftRow}>
+            <Ionicons name="help-circle-outline" size={22} color="#222" />
+            <Text style={styles.menuText}>Help Center</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={22} color="#222" />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.logoutBtn}>
+          <Text style={styles.logoutText}>Log Out</Text>
+          <Ionicons name="log-out-outline" size={20} color="#fff" style={{ marginLeft: 8 }} />
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#FAFAFA" },
+  topBg: {
+    backgroundColor: "#F2F2D8",
+    height: 160,
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  headerTitle: { fontSize: 24, fontWeight: "700", color: "#222" },
+  profileWrap: {
+    flex: 1,
+    backgroundColor: "#F2F2D8",
+    marginHorizontal: 16,
+    marginTop: -40,
+    borderRadius: 28,
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+  avatarWrapper: {
+    marginTop: -60,
+    position: "relative",
+    borderWidth: 6,
+    borderColor: "#E9E9D1",
+    borderRadius: 60,
+  },
+  avatar: { width: 100, height: 100, borderRadius: 50 },
+  editBtn: {
+    position: "absolute",
+    right: -2,
+    bottom: 6,
+    backgroundColor: "#5B43F3",
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  name: { fontSize: 30, fontWeight: "800", color: "#222", marginTop: 12 },
+  email: { color: "#666", fontSize: 16, marginBottom: 18 },
+  menuItem: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 18,
+  },
+  leftRow: { flexDirection: "row", alignItems: "center" },
+  menuText: { fontSize: 20, color: "#222", marginLeft: 14 },
+  logoutBtn: {
+    backgroundColor: "#5B43F3",
+    width: "100%",
+    borderRadius: 18,
+    paddingVertical: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  logoutText: { color: "#fff", fontSize: 22, fontWeight: "700" },
+});
